@@ -1,0 +1,4 @@
+node_modules
+.next
+src/graphql/schema/nexus-prisma-typegen.ts
+src/graphql/schema/nexus-typegen.ts
