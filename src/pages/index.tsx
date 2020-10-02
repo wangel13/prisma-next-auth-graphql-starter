@@ -13,7 +13,6 @@ export const exampleQuery = gql`
 const IndexPage = () => {
   const [session, loading] = useSession()
   const { data, loading: queryLoading, refetch } = useQuery(exampleQuery, { notifyOnNetworkStatusChange: true })
-
   if (loading) {
     return (
       <div className="flex justify-center mt-8 text-center">

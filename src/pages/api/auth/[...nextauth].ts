@@ -12,11 +12,15 @@ export default authHandler
 
 const options = {
   providers: [
-    // Providers.BattleNet({
-    //   clientId: process.env.PROVIDER_GITHUB_ID,
-    //   clientSecret: process.env.PROVIDER_GITHUB_SECRET,
-    //   region: process.env.PROVIDER_REGION
-    // }),
+    Providers.Twitch({
+      clientId: process.env.PROVIDER_TWITCH_CLIENT_ID,
+      clientSecret: process.env.PROVIDER_TWITCH_CLIENT_SECRET,
+    }),
+    Providers.BattleNet({
+      clientId: process.env.PROVIDER_BATTLENET_ID,
+      clientSecret: process.env.PROVIDER_BATTLENET_SECRET,
+      region: process.env.PROVIDER_BATTLENET_REGION,
+    }),
     Providers.GitHub({
       clientId: process.env.PROVIDER_GITHUB_ID,
       clientSecret: process.env.PROVIDER_GITHUB_SECRET,

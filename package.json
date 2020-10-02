@@ -1,12 +1,12 @@
 {
   "name": "prisma-next-auth-graphql-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "studio": "npx prisma studio --experimental",
+    "studio": "npx prisma studio",
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
     "generate:prisma": "prisma generate",
     "generate:nexus": "ts-node --transpile-only -P nexus.tsconfig.json src/graphql/schema",
@@ -23,7 +23,12 @@
       "eslint --fix"
     ]
   },
-  "keywords": [],
+  "keywords": [
+    "prisma",
+    "starter",
+    "fullstack",
+    "auth"
+  ],
   "author": "Taras Protchenko",
   "license": "ISC",
   "dependencies": {
