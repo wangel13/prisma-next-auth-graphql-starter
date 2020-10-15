@@ -42,8 +42,8 @@
     "next": "9.5.5",
     "next-auth": "3.1.0",
     "nexus-plugin-prisma": "0.22.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
   },
   "devDependencies": {
     "@tailwindcss/custom-forms": "0.2.1",
