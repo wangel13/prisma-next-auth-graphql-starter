@@ -32,9 +32,9 @@
   "author": "Taras Protchenko",
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "3.2.5",
+    "@apollo/client": "3.3.3",
     "@nexus/schema": "0.19.2",
-    "apollo-server-micro": "2.18.2",
+    "apollo-server-micro": "2.19.0",
     "graphql": "15.4.0",
     "graphql-iso-date": "3.6.1",
     "graphql-middleware": "4.0.2",
