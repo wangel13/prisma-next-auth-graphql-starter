@@ -33,7 +33,7 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "3.2.5",
-    "@nexus/schema": "0.16.0",
+    "@nexus/schema": "0.19.2",
     "apollo-server-micro": "2.18.2",
     "graphql": "15.4.0",
     "graphql-iso-date": "3.6.1",
