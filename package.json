@@ -39,7 +39,7 @@
     "graphql-iso-date": "3.6.1",
     "graphql-middleware": "4.0.2",
     "graphql-shield": "7.4.2",
-    "next": "10.0.0",
+    "next": "10.0.3",
     "next-auth": "3.1.0",
     "nexus-plugin-prisma": "0.25.0",
     "react": "17.0.1",
