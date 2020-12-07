@@ -1,6 +1,7 @@
 import React from 'react'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { useQuery, gql } from '@apollo/client'
+import Image from 'next/image'
 
 export const exampleQuery = gql`
   query example {
@@ -27,9 +28,13 @@ const IndexPage = () => {
     return (
       <div className="flex justify-center mt-8 text-center">
         <div className="flex-auto">
-          <img
+          <Image
+            // @ts-ignore
             src={session.user.image}
+            // @ts-ignore
             alt={session.user.email ?? session.user.name}
+            width="60"
+            height="60"
             className="h-16 w-16 rounded-full mx-auto mb-2"
           />
           <div className="text-lg mb-2">Hello, {session.user.email ?? session.user.name}</div>

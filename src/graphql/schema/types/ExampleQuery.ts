@@ -12,7 +12,7 @@ export const Queries = extendType({
   definition: (t) => {
     t.field('example', {
       type: 'Example',
-      resolve: async (parent, args, ctx) => {
+      resolve: async (_parent, _args, _ctx) => {
         return {
           message: 'Hello there!',
         }

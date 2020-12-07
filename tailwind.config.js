@@ -1,8 +1,5 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
+  darkMode: 'media',
   purge: ['./src/components/**/*.{js,ts,jsx,tsx}', './src/pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -12,5 +9,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('@tailwindcss/custom-forms'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
