@@ -63,7 +63,7 @@ Starter use [Prisma](https://www.prisma.io/docs/) for db queries.
     Use Prisma migrate tool.
 
     ```shell
-    npx prisma migrate save --name init --experimental
+    prisma migrate dev --create-only --name init
     ```
     
     You can find migration files in `prisma/migrations`.
@@ -73,7 +73,7 @@ Starter use [Prisma](https://www.prisma.io/docs/) for db queries.
     Use Prisma migrate tool.
 
     ```shell
-    npx prisma migrate up --experimental
+    prisma migrate dev
     ```
     
 1.  **Generate new fresh Prisma client.**

@@ -1,6 +1,7 @@
 module.exports = {
-  darkMode: 'media',
+  mode: 'jit',
   purge: ['./src/components/**/*.{js,ts,jsx,tsx}', './src/pages/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -8,6 +9,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
