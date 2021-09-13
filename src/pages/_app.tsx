@@ -1,13 +1,15 @@
 import React from 'react'
 import { Provider } from 'next-auth/client'
 import { AppProps } from 'next/app'
-import { ApolloProvider } from '@apollo/client'
-import { useApollo } from 'graphql/apollo-client/client'
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import '../styles/global.css'
 
-export default function App({ Component, pageProps }: AppProps) {
-  const apolloClient = useApollo(pageProps.initialApolloState)
+const apolloClient = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "/api/graphql",
+});
 
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider session={pageProps.session}>
       <ApolloProvider client={apolloClient}>

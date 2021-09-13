@@ -15,7 +15,7 @@
     ```shell
     docker-compose up -d
     ```
-    <sub>don't forget about [`.env`](#env)</sub>
+    <sub>don't forget about [`.env`](#-env)</sub>
     
     Also, you can use any DB supported by Prisma([docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/))
     
