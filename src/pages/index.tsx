@@ -1,5 +1,5 @@
 import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import { useQuery, gql } from '@apollo/client'
 import Image from 'next/image'
 
@@ -12,7 +12,8 @@ export const exampleQuery = gql`
 `
 
 const IndexPage = () => {
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
   const { data, loading: queryLoading, refetch } = useQuery(exampleQuery, { notifyOnNetworkStatusChange: true })
   if (loading) {
     return (

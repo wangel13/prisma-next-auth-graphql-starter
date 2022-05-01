@@ -1,5 +1,5 @@
 import { NextApiHandler } from 'next'
-import { getSession } from 'next-auth/client'
+import { getSession } from 'next-auth/react'
 
 const secretHandler: NextApiHandler = async (req, res) => {
   const session = await getSession({ req })

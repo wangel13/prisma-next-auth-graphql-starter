@@ -1,20 +1,20 @@
 import React from 'react'
-import { Provider } from 'next-auth/client'
+import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 import '../styles/global.css'
 
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "/api/graphql",
-});
+  uri: '/api/graphql',
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
       <ApolloProvider client={apolloClient}>
         <Component {...pageProps} />
       </ApolloProvider>
-    </Provider>
+    </SessionProvider>
   )
 }

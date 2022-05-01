@@ -1,31 +1,26 @@
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
-import Adapters from 'next-auth/adapters'
+import TwitchProvider from 'next-auth/providers/twitch'
+import GitHubProvider from 'next-auth/providers/github'
+import EmailProvider from 'next-auth/providers/email'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
 
-import { NextApiHandler } from 'next'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options)
-export default authHandler
-
-const options = {
+export default NextAuth({
+  secret: process.env.AUTH_SECRET,
+  adapter: PrismaAdapter(prisma),
   providers: [
-    Providers.Twitch({
+    TwitchProvider({
       clientId: process.env.PROVIDER_TWITCH_CLIENT_ID,
       clientSecret: process.env.PROVIDER_TWITCH_CLIENT_SECRET,
     }),
-    Providers.BattleNet({
-      clientId: process.env.PROVIDER_BATTLENET_ID,
-      clientSecret: process.env.PROVIDER_BATTLENET_SECRET,
-      region: process.env.PROVIDER_BATTLENET_REGION,
-    }),
-    Providers.GitHub({
+    GitHubProvider({
       clientId: process.env.PROVIDER_GITHUB_ID,
       clientSecret: process.env.PROVIDER_GITHUB_SECRET,
     }),
-    Providers.Email({
+    EmailProvider({
       server: {
         host: process.env.PROVIDER_SMTP_HOST,
         port: Number(process.env.PROVIDER_SMTP_PORT),
@@ -37,9 +32,4 @@ const options = {
       from: process.env.PROVIDER_SMTP_FROM,
     }),
   ],
-  adapter: Adapters.Prisma.Adapter({
-    prisma,
-  }),
-
-  secret: process.env.AUTH_SECRET,
-}
+})
