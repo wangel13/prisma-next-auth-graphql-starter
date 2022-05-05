@@ -3,8 +3,23 @@ import TwitchProvider from 'next-auth/providers/twitch'
 import GitHubProvider from 'next-auth/providers/github'
 import EmailProvider from 'next-auth/providers/email'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-
 import { PrismaClient } from '@prisma/client'
+
+// Enable studio auth in development mode
+const cookiesPolicy =
+  process.env.NODE_ENV === 'development'
+    ? {
+        sessionToken: {
+          name: `_Secure_next-auth.session-token`,
+          options: {
+            httpOnly: true,
+            sameSite: 'None',
+            path: '/',
+            secure: true,
+          },
+        },
+      }
+    : {}
 
 const prisma = new PrismaClient()
 
@@ -32,4 +47,5 @@ export default NextAuth({
       from: process.env.PROVIDER_SMTP_FROM,
     }),
   ],
+  cookies: cookiesPolicy,
 })

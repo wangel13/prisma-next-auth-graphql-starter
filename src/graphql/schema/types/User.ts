@@ -3,26 +3,24 @@ import { objectType, extendType, stringArg, nonNull } from 'nexus'
 export const User = objectType({
   name: 'User',
   definition(t) {
-    t.int('id')
+    t.string('id')
     t.string('name')
     t.string('email')
     t.string('image')
-    t.date('createdAt')
-    t.date('updatedAt')
   },
 })
 
 export const UserQueries = extendType({
   type: 'Query',
   definition: (t) => {
-    t.field('user', {
+    t.nonNull.field('user', {
       type: 'User',
       args: {
         userId: nonNull(stringArg()),
       },
-      resolve: (_, args, ctx) => {
-        return ctx.prisma.user.findUnique({
-          where: { id: Number(args.userId) },
+      resolve: (_, args, context) => {
+        return context.prisma.user.findUnique({
+          where: { id: args.userId },
         })
       },
     })
@@ -38,8 +36,8 @@ export const UserMutations = extendType({
         name: stringArg(),
         email: nonNull(stringArg()),
       },
-      resolve: (_, { name, email }, ctx) => {
-        return ctx.prisma.user.create({
+      resolve: async (_, { name, email }, context) => {
+        return context.prisma.user.create({
           data: {
             name,
             email,

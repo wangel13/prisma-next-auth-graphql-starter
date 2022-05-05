@@ -2,9 +2,10 @@ import { createContext } from 'graphql/context'
 import { schema } from 'graphql/schema'
 import cors from 'micro-cors'
 import { ApolloServer } from 'apollo-server-micro'
-import { NextApiHandler } from 'next'
+import { NextApiHandler, PageConfig } from 'next'
 
-export const config = {
+// Apollo Server Micro takes care of body parsing
+export const config: PageConfig = {
   api: {
     bodyParser: false,
   },
@@ -40,4 +41,13 @@ const handler: NextApiHandler = async (req, res) => {
   return apolloServerHandler(req, res)
 }
 
-export default cors()(handler)
+// Enable studio in development mode
+const corsConfig =
+  process.env.NODE_ENV === 'development'
+    ? {
+        origin: 'https://studio.apollographql.com',
+        allowCredentials: true,
+      }
+    : {}
+
+export default cors(corsConfig)(handler)
