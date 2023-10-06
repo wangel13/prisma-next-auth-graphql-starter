@@ -62,7 +62,7 @@
     "eslint-config-next": "12.1.5",
     "husky": "7.0.4",
     "lint-staged": "12.4.1",
-    "postcss": "8.4.13",
+    "postcss": "8.4.31",
     "prettier": "2.6.2",
     "prisma": "3.13.0",
     "ts-node": "10.7.0",
